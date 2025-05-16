@@ -42,8 +42,8 @@ def predict(model, input_tensor):
     return class_labels[predicted_class], probs.squeeze().tolist()
 
 # UI
-st.set_page_config(page_title=" ╜φ°⌂▌╫§╜φ°⌂▌╫§╜φ°⌂▌╫§╜φ°⌂▌╫§╜φ°⌂▌╫§╜φ°⌂▌╫§╜φ°⌂▌╫§╜ ")
-st.title("R U Ok? || R U Happy?")
+st.set_page_config(page_title=" ESI w/ ConvNeXT ")
+st.title("Employee Satisfaction Identifier")
 st.write("Upload an image to classify emotions using a ConvNeXt model.")
 
 uploaded_file = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
@@ -58,7 +58,7 @@ if uploaded_file:
     satisfaction = satisfaction_map[label]
 
     st.markdown(f"### you are feeling/looking: **{label}**")
-    st.markdown(f"### you are: **{satisfaction}** while working")
+    st.markdown(f"### you are probably: **{satisfaction}** while working")
 
     st.subheader("Confidence Scores")
     st.bar_chart({lbl: prob for lbl, prob in zip(class_labels, probabilities)})
