@@ -69,8 +69,8 @@ if image:
     label, probabilities = predict(model, input_tensor)
     satisfaction = satisfaction_map[label]
 
-    st.markdown(f"### Emotion: **{label}**")
-    st.markdown(f"### Satisfaction Level: **{satisfaction}**")
+    st.markdown(f"### You are feeling/looking: **{label}**")
+    st.markdown(f"### You are probably: **{satisfaction}** while working")
 
     st.subheader("Confidence Scores")
     st.bar_chart({lbl: prob for lbl, prob in zip(class_labels, probabilities)})
